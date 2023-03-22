@@ -1,0 +1,29 @@
+<ion-list class="sleepiness" lines="none">
+  <ion-item>
+    <ion-icon name="cloudy-night-outline" class="sleepiness__icon"></ion-icon
+  ></ion-item>
+  <ion-item>
+    <h1 class="sleepiness__header">How sleepy are you ?</h1>
+  </ion-item>
+  <ion-item class="sleepiness__item__option">
+    <ion-list class="sleepiness__list" lines="none">
+      <ion-item>
+        <ion-select color="tertiary" interface="action-sheet" placeholder="Choose your sleepiness" [(ngModel)]="inputValue" >
+          <ion-select-option class="sleepiness__item__rate" *ngFor="let rate of scaleArray; let i = index" [value]="i">{{rate}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-button color="tertiary" shape="round" class="sleepiness__button" [disabled]="inputValue==undefined"
+      (click)="selectSleepiness()">Submit</ion-button
+    >
+  </ion-item> 
+  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+    <ng-template>
+      <ion-content class="ion-padding"><ion-icon name="checkmark-outline"></ion-icon> Sent!</ion-content>
+    </ng-template>
+  </ion-popover>
+ 
+ 
+</ion-list>

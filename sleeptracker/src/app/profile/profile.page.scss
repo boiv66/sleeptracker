@@ -1,0 +1,91 @@
+
+
+
+.profile__content{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.profile__header{
+    text-align: center;
+    margin-top: 20px; 
+
+}
+
+.profile__segment{
+   margin-top: 0px;
+    width: 80%; 
+    text-align: center; 
+}
+
+.todayDuration__container{
+    display: flex; 
+    justify-content: center;
+ 
+}
+
+.todayDuration_outer{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 140px; 
+    height: 140px;
+    border-radius: 50%;
+    background-color: #5260ff;
+}
+
+.todaySleepDuration{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 110px; 
+    height: 110px;
+    border-radius: 50%;
+    font-size: 15px;
+    z-index: 5; 
+    background-color: black;
+
+    
+  }
+
+  .todaySleepDuration p {
+    margin: 2px 0;
+  }
+  .todaySleepDuration .totalSleepText span{
+    font-size: 40px;
+  }
+  #todaySleepinessChartDiv{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  #todaySleepinessChart, #weekSleepinessChartDiv{
+    width: 250px !important; 
+    height: 250px !important; 
+    margin: 0 auto !important;
+  }
+
+  .todaySleepDurationHeader{
+    margin-top: 30px; 
+      text-align: center; 
+      font-size: 23px; 
+  }
+
+  .weekSleepDurationHeader{
+    margin-top: 30px; 
+    text-align: center; 
+    font-size: 20px;
+  }
+
+  #weekSleepinessChartDiv{
+    width: 250px !important; 
+    height: 250px !important; 
+    margin: 0 auto !important;
+  }
+
+ 

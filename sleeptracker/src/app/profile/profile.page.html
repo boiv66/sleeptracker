@@ -1,0 +1,42 @@
+<ion-content class="profile__content">
+  <ion-header>
+   
+    <ion-toolbar>
+     
+      <ion-segment [(ngModel)]="type" (ionChange)="segmentChange()" class="profile__segment">
+        <ion-segment-button value="night">
+          <ion-label>Today</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="week">
+          <ion-label>Week</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+      
+    </ion-toolbar>
+  </ion-header>
+  <h1 class="profile__header">Dashboard</h1>
+
+  <div id="divChart" >
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <div class="todayDuration__container" *ngIf="type=='night'">
+    <div class="todayDuration_outer">
+      <div class="todaySleepDuration">
+        <p> Total Sleep</p>
+        <p class="totalSleepText"><span>{{todaySleepDuration}}</span> hrs</p>
+        
+      </div>
+    </div>
+  </div>
+  <h5 class="todaySleepDurationHeader" *ngIf="type=='night'"> Sleepiness Summary </h5>
+  <div id="todaySleepinessChartDiv" >
+    <canvas id="todaySleepinessChart" ></canvas>
+  </div>
+  
+  <h5 class="weekSleepDurationHeader" *ngIf="type=='week'"> Average Sleepiness Score In a Week </h5>
+  <div id="weekSleepinessChartDiv">
+    <canvas id="weekSleepinessChart"></canvas>
+
+  </div>
+</ion-content>

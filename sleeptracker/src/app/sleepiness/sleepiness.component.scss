@@ -1,0 +1,61 @@
+.sleepiness{
+    flex-direction: column;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.sleepiness .sleepiness__icon{
+    font-size: 60px; 
+}
+
+.sleepiness .sleepiness__header{
+    margin-top: 40px; 
+}
+
+
+
+.sleepiness .sleepiness__button{
+    width: 150px; 
+    height:60px; 
+    font-size: 25px;
+    text-transform: none; 
+    letter-spacing: normal;
+    margin-top: 40px; 
+}
+.sleepiness .sleepiness__list{
+    width: 100%; 
+}
+.sleepiness .sleepiness__item__option{
+    width: 100%; 
+
+}
+
+// .sleepiness__item__rate{
+//     // border-bottom: solid white 1px;
+// }
+.sleepiness .sleepiness__list {
+    width: 100%; 
+}
+.sleepiness .sleepiness__option{
+   word-wrap: break-word;
+}
+
+.sleepiness .sleepiness__item{
+    // font-size: 30px; 
+    margin-top: 30px;
+
+
+}
+// .action-sheet-button.sc-ion-action-sheet-md {
+//     height: 60px !important;
+// }
+ion-popver{
+    position: absolute !important; 
+    top: 70% !important; 
+}
+
+ion-popover ion-content {
+    --background: rgba(3,183,167,0.6); 
+  }

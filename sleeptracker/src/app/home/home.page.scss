@@ -19,9 +19,60 @@
 
   color: #8c8c8c;
 
-  margin: 0;
 }
+
+// .main-page{
+ 
+
+// }
+
+.main-page .moon-icon{
+  margin-top: 40px; 
+  font-size: 90px; 
+
+
+}
+
+.main-page .current-time{
+  font-size: 60px; 
+  margin: 40px 0; 
+}
+
+
+.main-page .action-btn{
+  
+  text-transform: none;
+  width: 200px; 
+  height: 70px; 
+  font-size: 25px;
+  letter-spacing: normal;
+}
+
 
 #container a {
   text-decoration: none;
 }
+
+.manualSleep{
+ margin-top: 50px;
+ text-decoration: underline;
+ font-size: 15px;
+}
+
+#open-modal{
+
+  margin-top: 50px;
+ text-decoration: underline;
+ font-size: 15px;
+}
+
+ion-datetime{
+ position: absolute; 
+bottom: 0%; 
+}
+
+.input-warning-message{
+
+  color: white; 
+}
+

@@ -1,20 +1,148 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Sleep Tracker
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<div class="ion-page">
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">Sleep Tracker</ion-title>
+      <ion-title> Sleep Tracker </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Sleep Tracker</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-grid class="main-page">
+      <ion-row class="ion-justify-content-center">
+        <ion-icon name="moon-outline" class="moon-icon"></ion-icon>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <p class="current-time">{{displayTime}}</p>
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <ion-button
+          *ngIf="sleepStart===false"
+          shape="round"
+          color="tertiary"
+          class="action-btn"
+          (click)="toggleStartSleeping()"
+          >Start Sleep</ion-button
+        >
+        <ion-button
+          *ngIf="sleepStart===true"
+          shape="round"
+          color="tertiary"
+          class="action-btn"
+          (click)="toggleStartSleeping()"
+          >End Sleep</ion-button
+        >
+      </ion-row>
+      <ion-row class="ion-justify-content-center">
+        <a id="open-modal" expand="block">Enter your sleep period manually</a>
+        <ion-modal
+          #modal
+          trigger="open-modal"
+          [swipeToClose]="true"
+          [canDismiss]="true"
+          [presentingElement]="presentingElement"
+        >
+          <ng-template>
+            <ion-header>
+              <ion-toolbar>
+                <ion-title>Data Log</ion-title>
+                <ion-buttons slot="end">
+                  <ion-button (click)="cancel(modal)">Done</ion-button>
+                </ion-buttons>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content class="ManualPage">
+              <ion-item>
+                <ion-label position="stacked"
+                  >Your sleep started at:
+                </ion-label>
+
+                <ion-input
+               
+                  id="startSleepModal" 
+                  
+                >{{displayStartTime}}</ion-input>
+              </ion-item>
+
+              <ion-modal
+                trigger="startSleepModal"
+                [swipeToClose]="true"
+                [canDismiss]="true"
+                [presentingElement]="presentManualModel"
+                #modalCalendarStartTime
+              >
+                <ng-template>
+                  <ion-header>
+                    <ion-toolbar>
+                      <ion-title>Data Log</ion-title>
+                      <ion-buttons slot="end">
+                        <ion-button (click)="cancelStartTime(modalCalendarStartTime)"
+                          >Done</ion-button
+                        >
+                      </ion-buttons>
+                    </ion-toolbar>
+                  </ion-header>
+                  <ion-datetime
+                    presentation="date-time"
+                    [preferWheel]="true"
+                    [(ngModel)]="startTimeInput"
+                  ></ion-datetime>
+                </ng-template>
+              </ion-modal>
+
+              <ion-item>
+                <ion-label position="stacked">Your sleep ended at: </ion-label>
+                <ion-input  id="endSleepModal">{{displayEndTime}}</ion-input>
+              </ion-item>
+
+              <ion-modal
+                  trigger="endSleepModal"
+                  [swipeToClose]="true"
+                  [canDismiss]="true"
+                  [presentingElement]="presentManualModel"
+                  #modalCalendarEndTime
+                >
+                  <ng-template>
+                    <ion-header>
+                      <ion-toolbar>
+                        <ion-title>Data Log</ion-title>
+                        <ion-buttons slot="end">
+                          <ion-button (click)="cancelEndTime(modalCalendarEndTime)"
+                            >Done</ion-button
+                          >
+                        </ion-buttons>
+                      </ion-toolbar>
+                    </ion-header>
+                    <ion-datetime
+                      presentation="date-time"
+                     
+                      [preferWheel]="true"
+                      [(ngModel)]="endTimeInput"
+                    ></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+
+              <ion-popover #popover class="input-warning-message" [isOpen]="isOpen" (didDismiss)="isOpen = false">
+                <ng-template>
+                  <ion-content class="ion-padding">{{warningMessage}}</ion-content>
+                </ng-template>
+              </ion-popover>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+
+        <!-- <ion-datetime-button datetime="datetime-1" ></ion-datetime-button> 
+
+        <ion-modal [keepContentsMounted]="true" >
+          <ng-template>
+            <ion-datetime id="datetime-1"></ion-datetime>
+          </ng-template>
+        </ion-modal> -->
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</div>
